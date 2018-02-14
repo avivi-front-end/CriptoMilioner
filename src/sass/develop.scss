@@ -1,4 +1,21 @@
-/* helping adds*/
+@mixin font-face($style-name, $file:$style-name, $weight:normal, $style:normal) {
+    $filepath: "../fonts/" + $file;
+    @font-face {
+        font-family: quote($style-name);
+        src: url($filepath + ".eot");
+        src: url($filepath + ".eot?#iefix") format('embedded-opentype'),
+        url($filepath + ".woff") format('woff'),
+        url($filepath + ".ttf")  format('truetype');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+@include font-face('ProximaNova', 'ProximaNova-Bold', 700);
+@include font-face('ProximaNova', 'ProximaNova-Light', 300);
+@include font-face('ProximaNova', 'ProximaNova-Regular', 400);
+@include font-face('ProximaNova', 'ProximaNova-Semibold', 600);
+@include font-face('ProximaNova', 'ProximaNovaT-Thin', 100);
+@include font-face('ProximaNova', 'ProximaNova-Black', 900);
 
 .clear{clear:both;font-size:1px;line-height:1px;height:0;overflow:hidden;}
 .cfix:after{content: '';display: block;height: 0;font-size: 1px;line-height: 1px;overflow: hidden;clear: both;}
@@ -6,96 +23,107 @@
 .jfix-after:after{content: '';display: inline-block;width: 100%;height: 0;overflow: hidden;}
 .vfix{height:100%;width:0px;display:inline-block;vertical-align:middle;}
 .vfix-before:before{content: '';height: 100%;width: 0;display: inline-block;vertical-align: middle;}
-
 .hidden-block{position:absolute;left:-99999em;top:-99999em;}
-
 /* /helping adds*/
-
-/* ctext */
-
-    .ctext{
-        h1, h2, h3, h4, h5, h6{line-height: 1.25;margin-bottom: 15px;font-weight: 700;}
-        h1{font-size: 36px;}
-        h2{font-size: 32px;}
-        h3{font-size: 28px;}
-        h4{font-size: 24px;}
-        h5{font-size: 20px;}
-        h6{font-size: 16px;}
-        p{margin-bottom: 10px;font-size: 14px;}
-    }
-
-/* /ctext */
-
-/* base styles*/
 *,*:before, *:after{box-sizing:border-box;outline:none;}
 *,body,html{-webkit-text-size-adjust: none;-webkit-appearance: none;max-height: 9001em;}
+body,html{font-size: 22px;}
 html{height:100%;}
-body{min-height:100%;width:100%;min-width:320px;font-family:arial,sans-serif;background:#fff;color:#3d3d3d;position:relative;font-size: 16px;line-height: 1;
-
-    /* styles for wp-admin panel */
-
-    &.customize-support{
-        .wp-panel-show{top:32px;} //fixed elements (if their has top:0) must has class .wp-panel-show
-    }
-
-    /* /styles for wp-admin panel */
-
-}
+body{min-height:100%;width:100%;min-width:320px;font-family:'ProximaNova';background:#fff;color:#3d3d3d;position:relative;line-height: 1.273; font-weight: 400;}
 img{vertical-align:bottom;border:0;max-width:100%;}
-
-/* adapted styles for wp-admin panel */
-
-@media screen and (max-width: 782px){
-
-    body{
-        &.customize-support{
-            .wp-panel-show{top:46px;}
-        }
-    }
-
-    #wpadminbar{position: fixed!important;}
-
-}
-/* /adapted styles for wp-admin panel */
-
-/* /base styles */
-
-/* wraps styling*/
-
-.mbox{max-width:1024px;width:100%;margin:0 auto;position:relative;z-index:1;}
+.mbox{max-width:1170px;width:100%;margin:0 auto;position:relative;z-index:1; padding:0 15px;}
 .mbox:after{content:"";clear:both;font-size:1px;line-height:1px;height:0;overflow:hidden;display:block;}
-
-/* /wraps styling*/
-
-
 .footer_placeholder{height: 200px;}
 .footer{position:absolute;bottom:0;left:0;width:100%;z-index:2;overflow:hidden;}
-
 input, textarea{
     &::-webkit-input-placeholder {color:#212121;}
     &:-moz-placeholder {color:#212121;opacity:1;}
     &::-moz-placeholder {color:#212121;opacity:1;}
     &:-ms-input-placeholder {color:#212121;}
 }
+ul.c-text{ list-style-type:none;margin: 0;    padding: 0 ;
+    li{ position: relative; margin-bottom: 16px; text-indent: 31px;
+        &:before{ background-color: #7152d3; width: 8px; height: 8px; display: block; content: ''; position: absolute; left: 8px; top: 11px; transform:rotate(45deg);}
+    }
+}
+b,strong{ font-size: 1.091rem;}
+a{ text-decoration: none; color: inherit;}
+h2{ font-size:2.727rem; line-height: 1.2;letter-spacing: -2.3px;}
+h3{ font-size:1.818rem; line-height:1.375;}
+h1,h2,h3,h4,h5,h6{color: #332262;
+    &.white{ color: #fff;}
+}
+p{margin: 0.8em 0;}
+.btn{ height: 50px; min-width: 250px; margin-right: 5px; font-size:0.8182rem; text-transform: uppercase; border-width: 2px; border-radius: 25px; cursor: pointer; display: inline-block;  padding: 12px 24px; margin-bottom: 0; font-weight: 400;  line-height: 1.42857143;  text-align: center;white-space: nowrap; vertical-align: middle; user-select: none; border-style: solid; transition: all 200ms;
+    &--primary{border-color: #ffff; background-color: #fff; color: #21134c;
+        &:hover{ background-color: #352993; color: #fff; }
+    }
+    &--action{border-color: #ffff; background-color: transparent; color: #fff;
+        &:hover{ background-color: #fff; color: #21134c; }
+    }
+}
+.first-screen{background-image: url(../images/top.png); background-size: cover; background-position: 50% 100%; height: 1158px;margin-bottom: -115px; z-index: 10;  position: relative;
+    .slick-dots{ bottom: -98px;
+        li{ height: auto; width: auto; position: relative;
+            button{ width: 8px; height: 8px; font-size: 1rem; background-color: #fff;  border-radius:50%; opacity: 0.3; transition: opacity 200ms; padding: 0;}
+            &.slick-active{
+                button{ opacity: 1;}
+                &:before{ width: 18px; height: 18px; border: 1px solid #fff; content: ''; position: absolute; left: -5px; top: -5px; border-radius: 50%; }
+            }
+        }
+    }
+}
+.header{
+    &__action{ font-weight: 700; font-size:0.5455rem; color: #fff; text-transform: uppercase; padding-top: 53px;
+        a{ position: relative; margin-left: 15px; letter-spacing: 1px;
+            &:first-child{ margin-left: 0;}
+            &:before{ height: 4px; background-color: #5ee0f5; width: 100%; position: absolute; bottom:calc(100% + 49px); opacity: 0; transition: opacity 200ms; content: '';}
+            &:hover:before{ opacity: 1;}
+        }
+    }
+    &__wrapper{ display: flex; justify-content: space-between; align-items: flex-start;}
+    &__logo{ padding-top: 13px;}
+}
+.main-slider{padding-left: 266px; padding-right: 140px; padding-top: 55px;
+    &__wrap{ opacity: 0; transition: opacity 200ms;
+        &.slick-initialized{ opacity: 1;}
+    }
+    &__slide{ color: #fff;
+        h3{margin-bottom: 0.65em;}
+        p{ line-height: 1.5;}
+    }
+}
+.nav{ font-size:0.6818rem; text-transform: uppercase; font-weight: 300;
+    &__wrap{ list-style-type: none; padding: 0; margin: 0; display: flex; justify-content: space-between; align-items: flex-start;}
+    &__link{color: #fff; padding: 53px 15px 0; position: relative;
+        a{ position: relative; letter-spacing: 1px;
+            &:before{ height: 4px; background-color: #5ee0f5; width: 100%; position: absolute; bottom:calc(100% + 49px); opacity: 0; transition: opacity 200ms; content: '';}
+            &:hover:before{ opacity: 1;}
+        }
 
-/*End Layout*/
+    }
+}
+.text-r{ width: 100%; display: flex; justify-content: space-between; align-items: stretch;
+    h2{ padding-left: 34px;}
+    p{ text-indent: 30px;}
+    &__left{ width: 655px;
+        &--fl{ text-align: right; display: flex; justify-content: flex-start; align-items: center; width: 630px;}
+    }
+    &__right{ width: 510px;
+        &--fr{ text-align: right; display: flex; justify-content: flex-end; align-items: center; width: 485px;}
+    }
+}
+.js-acc-hidden{ display: none;}
+.js-acc-arrow{ width: 30px; height: 30px; position: absolute; right: 25px; top: 10px; cursor: pointer;
+    &:before{ background-color:transparent; width: 13px; height: 13px; position: absolute; right: 10px; top: 10px; border-top:2px solid  #545454; border-right:2px solid  #545454; transform:rotate(135deg); content: '';}
+}
+.c-text.js-acc{
+    li{ border-bottom: 1px solid #e8ebf2;    padding: 14px 58px 25px 33px;
+        &:before{    left: 39px; top: 25px;}
+        &.active{ border-bottom:none; border-radius: 20px; box-shadow: 0px 0px 18.69px 2.31px rgba(204, 204, 223, 0.5);
+            .js-acc-arrow:before{ transform:rotate(-45deg); }
 
-/*fonts*/
-@mixin font-face($style-name, $file:$style-name, $weight:normal, $style:normal) {
-    $filepath: "/fonts/" + $file;
-    @font-face {
-        font-family: quote($style-name);
-        src: url($filepath + ".eot");
-        src: url($filepath + ".eot?#iefix") format('embedded-opentype'),
-        url($filepath + ".woff") format('woff'),
-        url($filepath + ".ttf")  format('truetype'),
-        url($filepath + ".svg#" + $style-name + "") format('svg');
-        font-weight: $weight;
-        font-style: $style;
+        }
     }
 }
 
-//  example -> @include font-face('PFDinTextPro', 'PFDinTextPro-Bold', 700, italic);
-
-
-/*/fonts*/
