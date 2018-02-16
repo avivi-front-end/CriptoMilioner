@@ -1,9 +1,14 @@
 function slidersInit() {
-    $('.js-main-slider').slick({
-        arrows:false,
-        fade: true,
-        dots:true
-    });
+    var sl1 = $('.js-partners-slider');
+    if(sl1)sl1.slick({ arrows:true, dots:false, slidesToShow:5,
+        responsive: [
+            {  breakpoint: 1200, settings: { slidesToShow: 4 }},
+            {  breakpoint: 900, settings: { slidesToShow: 3 }},
+            {  breakpoint: 666, settings: { slidesToShow: 2 }},
+            {  breakpoint: 500, settings: { slidesToShow: 1 }}
+        ]});
+    var sl2 = $('.js-main-slider');
+    if(sl2) sl2.slick({ arrows:false, fade: true, dots:true});
 }
 function simpleAccordion() {
     $(document).on('click','.js-acc-arrow', function () {
@@ -19,7 +24,21 @@ function simpleAccordion() {
         }
     });
 }
+function butter() {
+    $('.js-butter').click(function () {
+        if($(this).hasClass('active')){
+            $('.header__menu').removeClass('active');
+            $(this).removeClass('active');
+        }else{
+            $('.header__menu').addClass('active');
+            $(this).addClass('active');
+        }
+
+
+    })
+}
 $(document).ready(function () {
     slidersInit();
     simpleAccordion();
+    butter();
 });
