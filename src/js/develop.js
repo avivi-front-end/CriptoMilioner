@@ -1,6 +1,6 @@
 function slidersInit() {
     var sl1 = $('.js-partners-slider');
-    if(sl1)sl1.slick({ arrows:true, dots:false, slidesToShow:5,
+    if(sl1)sl1.slick({ arrows:true, dots:false, slidesToShow:5, autoplay: true,  autoplaySpeed: 1000,
         responsive: [
             {  breakpoint: 1200, settings: { slidesToShow: 4 }},
             {  breakpoint: 900, settings: { slidesToShow: 3 }},
@@ -8,7 +8,7 @@ function slidersInit() {
             {  breakpoint: 500, settings: { slidesToShow: 1 }}
         ]});
     var sl2 = $('.js-main-slider');
-    if(sl2) sl2.slick({ arrows:false, fade: true, dots:true});
+    if(sl2) sl2.slick({ arrows:false, autoplay: true,  autoplaySpeed: 3000, fade: true, dots:true});
 }
 function simpleAccordion() {
     $(document).on('click','.js-acc-arrow', function () {
