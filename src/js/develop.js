@@ -7,8 +7,8 @@ function slidersInit() {
             {  breakpoint: 666, settings: { slidesToShow: 2 }},
             {  breakpoint: 500, settings: { slidesToShow: 1 }}
         ]});
-    var sl2 = $('.js-main-slider');
-    if(sl2) sl2.slick({ arrows:false, autoplay: true,  autoplaySpeed: 3000, fade: true, dots:true});
+    // var sl2 = $('.js-main-slider');
+    // if(sl2) sl2.slick({ arrows:false, autoplay: true,  autoplaySpeed: 3000,  dots:true});
 }
 function simpleAccordion() {
     $(document).on('click','.js-acc-arrow', function () {
